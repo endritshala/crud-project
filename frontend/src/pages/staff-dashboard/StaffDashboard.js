@@ -14,30 +14,18 @@ import { useNavigate } from "react-router-dom";
 import StaffRoutes from "./routes/staff.route";
 
 //views
-import CreateBill from "./views/Cashier/CreateBill";
 import PrescriptionList from "./views/Doctor/PrescriptionList";
 import CreatePrescription from "./views/Doctor/CreatePrescription";
 import Nurse from "./views/Nurse/Nurse";
 import ExaminationList from "./views/Nurse/ExaminationList";
 import Profile from "./views/Profile/Profile";
-import CreateRoom from "./views/Receptionist/CreateRoom";
-import CreateAppointment from "./views/Receptionist/CreateAppointment";
-import Pharmacist from "./views/Pharmacist/Pharmacist";
 import { useAuthContext } from "./../../hooks/useAuthContext";
-import AddTest from "./views/LabAssistant/AddTest";
-import Tests from "./views/LabAssistant/TestsList";
-import TestTypes from "./views/LabAssistant/TestTypes";
 import AddPatient from "./views/Admin/AddPatient/AddPatient";
 import PatientList from "./views/Admin/PatientList/PatientList";
 import AddStaff from "./views/Admin/AddStaff/AddStaff";
 import StaffList from "./views/Admin/StaffList/StaffList";
-import Bills from "./views/Cashier/Bills";
 import AddDepartment from "./views/Admin/AddDepartment/AddDepartment";
 import DepartmentList from "./views/Admin/DepartmentList/DepartmentList";
-import AppointemntList from "./views/Receptionist/AppointmentList";
-import Messages from "./views/Admin/Messages/Messages";
-import NurseShift from "./views/Nurse/NurseShift";
-import NurseShiftList from "./views/Nurse/NurseShiftList";
 
 const drawerWidth = 220;
 
@@ -134,10 +122,6 @@ function DashboardContent(props) {
               {user.admin && option === "/view-departments" && (
                 <DepartmentList />
               )}
-              {user.jobTitle === "receptionist" &&
-                option === "/createappointment" && <CreateAppointment />}
-              {user.jobTitle === "receptionist" &&
-                option === "/appointments" && <AppointemntList />}
 
               {user.jobTitle === "nurse" && option === "/view-examinations" && (
                 <ExaminationList />
