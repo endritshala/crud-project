@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const staff_login = (req, res) => {
-  const { email, login } = req.body;
+  const { email, password } = req.body;
 
   Staff.findOne({ email }).then((staff) => {
     if (!staff) {
@@ -20,7 +20,7 @@ const staff_login = (req, res) => {
 
     jwt.sign(
       { id: staff.id },
-      process.env.JWT_SECERT,
+      process.env.JWT_SECRET,
       { expiresIn: 3600 },
       (err, token) => {
         if (err) throw err;
