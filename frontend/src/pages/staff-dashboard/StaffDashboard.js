@@ -67,6 +67,10 @@ function DashboardContent(props) {
   const navigate = useNavigate();
   const [option, setOption] = React.useState(props.option);
 
+  // Debug output
+  console.log("user.jobTitle:", user.jobTitle);
+  console.log("option:", option);
+
   const handleRouteChange = (view) => {
     setOption(view);
     navigate("/staff/dashboard" + view);
@@ -112,22 +116,21 @@ function DashboardContent(props) {
               {user.admin && option === "/add-staff" && <AddStaff />}
               {user.admin && option === "/view-patients" && <PatientList />}
               {user.admin && option === "/view-staff" && <StaffList />}
-              {user.jobTitle === "doctor" && option === "/prescriptions" && (
+              {user.jobTitle === "Doctor" && option === "/prescriptions" && (
                 <PrescriptionList />
               )}
-              {user.jobTitle === "doctor" && option === "/addprescription" && (
+              {user.jobTitle === "Doctor" && option === "/addprescription" && (
                 <CreatePrescription />
               )}
               {user.admin && option === "/add-department" && <AddDepartment />}
               {user.admin && option === "/view-departments" && (
                 <DepartmentList />
               )}
-
-              {user.jobTitle === "nurse" && option === "/view-examinations" && (
+              {user.jobTitle === "Nurse" && option === "/view-examinations" && (
                 <ExaminationList />
               )}
-              {user.jobTitle === "nurse" &&
-                option === "/createexaminations" && <Nurse />}
+              {user.jobTitle === "Nurse" &&
+                option === "/create-examinations" && <Nurse />}
             </Grid>
             <Copyright sx={{ pt: 4 }} text={"Hospital Management System"} />
           </Container>

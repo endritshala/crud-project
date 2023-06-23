@@ -68,15 +68,7 @@ export default function MenuItems({ handleRouteChange }) {
           <ListItemText primary="View Departments" />
         </ListItem>
       )}
-      {user.jobTitle === "doctor" && (
-        <ListItem button onClick={() => handleRouteChange("/prescriptions")}>
-          <ListItemIcon>
-            <MedicationIcon />
-          </ListItemIcon>
-          <ListItemText primary="View Prescriptions" />
-        </ListItem>
-      )}
-      {user.jobTitle === "doctor" && (
+      {user.jobTitle === "Doctor" && (
         <ListItem button onClick={() => handleRouteChange("/addprescription")}>
           <ListItemIcon>
             <MedicationIcon />
@@ -84,7 +76,15 @@ export default function MenuItems({ handleRouteChange }) {
           <ListItemText primary="Add Prescription" />
         </ListItem>
       )}
-      {user.jobTitle === "nurse" && (
+      {user.jobTitle === "Doctor" && (
+        <ListItem button onClick={() => handleRouteChange("/prescriptions")}>
+          <ListItemIcon>
+            <MedicationIcon />
+          </ListItemIcon>
+          <ListItemText primary="View Prescriptions" />
+        </ListItem>
+      )}
+      {user.jobTitle === "Nurse" && (
         <ListItem
           button
           onClick={() => handleRouteChange("/view-examinations")}
@@ -95,10 +95,10 @@ export default function MenuItems({ handleRouteChange }) {
           <ListItemText primary="Your Examinations" />
         </ListItem>
       )}
-      {user.jobTitle === "nurse" && (
+      {user.jobTitle === "Nurse" && (
         <ListItem
           button
-          onClick={() => handleRouteChange("/createexaminations")}
+          onClick={() => handleRouteChange("/create-examinations")}
         >
           <ListItemIcon>
             <MedicationIcon />

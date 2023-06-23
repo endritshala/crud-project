@@ -17,7 +17,8 @@ export default function BookAppointment() {
       .required("Date is required")
       .nullable()
       .min(new Date(), "Please choose future date")
-      .nullable().transform((curr, orig) => orig === '' ? null : curr)
+      .nullable()
+      .transform((curr, orig) => (orig === "" ? null : curr))
       .default(undefined),
     description: Yup.string()
       .required("Description is required")
@@ -28,7 +29,6 @@ export default function BookAppointment() {
 
   const {
     register,
-    control,
     handleSubmit,
     reset,
     formState: { errors },

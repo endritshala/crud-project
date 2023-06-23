@@ -90,7 +90,6 @@ export default function Navbar() {
                     >
                       Profile
                     </MenuItem>
-                    <MenuItem>Account</MenuItem>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </Menu>
                 </Box>
