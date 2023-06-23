@@ -17,15 +17,15 @@ Appointment Scheduling: Schedule and manage appointments for patients, doctors, 
 
 The Hospital Management System is built using the following technologies:
 
-Front-end: HTML, CSS, JavaScript, React.js
-
-Back-end: Node.js, Express.js
-
-Database: MongoDB, SQL
-
-Authentication: JSON Web Tokens (JWT)
-
-Additional Libraries and Frameworks: Redux, Bootstrap, RESTful APIs
+	Front-end: HTML, CSS, JavaScript, React.js
+	
+	Back-end: Node.js, Express.js
+	
+	Database: MongoDB, SQL
+	
+	Authentication: JSON Web Tokens (JWT)
+	
+	Additional Libraries and Frameworks: Redux, Bootstrap, RESTful APIs
 
 
 # Usage
