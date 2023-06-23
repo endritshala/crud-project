@@ -5,8 +5,6 @@ import Paper from "@mui/material/Paper";
 import { useState, useEffect } from "react";
 import { Box } from "@mui/system";
 import api from "../../../../../api/axios";
-import { useAuthContext } from "../../../../../hooks/useAuthContext";
-import { useNavigate } from "react-router-dom";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,19 +17,10 @@ import * as Yup from "yup";
 import FormHelperText from "@mui/material/FormHelperText";
 
 export default function AddStaff() {
-  // const [date, setaDate] = useState(new Date(Date.now()));
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [password, setPassword] = useState("");
   const [department, setDepartment] = useState("");
   const [education, setEducation] = useState([]);
-  // const [job_title,setjob_title] = useState('');
   const [admin, setAdmin] = useState(false);
-  // const { user } = useAuthContext();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -76,8 +65,6 @@ export default function AddStaff() {
       )
       .min(1, "Education is required"),
   });
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchDepartments().catch(console.error);
@@ -225,24 +212,6 @@ export default function AddStaff() {
               {...register("password")}
               error={errors.password ? true : false}
             />
-            {/* <TextField
-            required
-            fullWidth
-            name="department"
-            label="Department"
-            id="department"
-            helperText={
-              errors.department?.message
-                ? errors.department?.message
-                : ""
-            }
-            InputLabelProps={{
-              shrink: true,
-            }}
-            {...register("department")}
-            error={errors.department ? true : false}
-          /> */}
-
             <FormControl sx={{ m: 0, minWidth: 80 }}>
               <Controller
                 name="department"
@@ -275,36 +244,6 @@ export default function AddStaff() {
                 )}
               />
             </FormControl>
-
-            {/* <FormControl  sx={{ m: 0, minWidth: 80 }}>
-      <Controller
-        name="department"
-        control={control}
-        defaultValue={[]}
-        render={({ field: { ref, ...field }, fieldState: { error } }) => (
-          <Autocomplete
-            {...field}
-            disablePortal
-            options={departments.map((option) => option.departmentName)}
-            onChange={(event, value) => {
-              field.onChange(value);
-            }}
-            renderInput={(params) => (
-              <TextField
-                required
-                error={!!error}
-                helperText={error?.message}
-                label="Department"
-                inputRef={ref}
-                {...params}
-              />
-            )}
-          />
-        )}
-      /> 
-
-      </FormControl> */}
-
             <FormControl sx={{ m: 0, minWidth: 80 }}>
               <Controller
                 name="education"

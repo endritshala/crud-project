@@ -22,7 +22,6 @@ import { TextField } from "@mui/material";
 import api from "../../../../../api/axios";
 import { useState, useEffect } from "react";
 import Notifybar from "../../../../../components/shared/Notifybar";
-// import { useAuthContext } from "../../../../hooks/useAuthContext";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -91,9 +90,8 @@ export default function DepartmentList() {
     setBar(false);
   };
 
-  // const { user } = useAuthContext();
   const [records, setRecords] = useState([]);
-  // const id = user.id;
+
   const fetchData = async () => {
     await api.get(`/staff/department/all`).then((userData) => {
       setRecords(userData.data);

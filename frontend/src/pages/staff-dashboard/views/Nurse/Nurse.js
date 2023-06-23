@@ -9,7 +9,6 @@ import { Autocomplete } from "@mui/material";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 export default function Nurse() {
-  // const [date, setaDate] = useState(new Date(Date.now()));
   const [patient, setPatient] = useState("");
   const [date, setDate] = useState(new Date(Date.now()));
   const [description, setDescription] = useState("");

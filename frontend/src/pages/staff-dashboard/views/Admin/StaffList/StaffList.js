@@ -256,9 +256,8 @@ export default function StaffList() {
     setBar(false);
   };
 
-  // const { user } = useAuthContext();
   const [records, setRecords] = useState([]);
-  // const id = user.id;
+
   const fetchData = async () => {
     await api.get(`/staff/all`).then((userData) => {
       setRecords(userData.data);

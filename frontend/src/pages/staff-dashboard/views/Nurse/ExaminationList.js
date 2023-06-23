@@ -22,15 +22,12 @@ import { Tab, TextField } from "@mui/material";
 import api from "../../../../api/axios";
 import { useState, useEffect } from "react";
 import Notifybar from "../../../../components/shared/Notifybar";
-// import { useAuthContext } from "../../../../hooks/useAuthContext";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function ExaminationList() {
-  // const { user } = useAuthContext();
-
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [bar, setBar] = React.useState(false);

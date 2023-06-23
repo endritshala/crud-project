@@ -106,23 +106,6 @@ export default function MenuItems({ handleRouteChange }) {
           <ListItemText primary="Create Examination" />
         </ListItem>
       )}
-
-      {user.jobTitle === "nurse" && (
-        <ListItem button onClick={() => handleRouteChange("/view-nurseshift")}>
-          <ListItemIcon>
-            <LibraryBooksIcon />
-          </ListItemIcon>
-          <ListItemText primary="Your Nurse Shift" />
-        </ListItem>
-      )}
-      {user.jobTitle === "nurse" && (
-        <ListItem button onClick={() => handleRouteChange("/createnurseshift")}>
-          <ListItemIcon>
-            <MedicationIcon />
-          </ListItemIcon>
-          <ListItemText primary="Create Nurse Shift" />
-        </ListItem>
-      )}
     </div>
   );
 }
