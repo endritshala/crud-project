@@ -16,28 +16,28 @@ const staff_login = (req, res) => {
       if (!isMatch) {
         return res.status(400).json({ msg: "Invalid credentials" });
       }
+
+      jwt.sign(
+        { id: staff.id },
+        process.env.JWT_SECRET,
+        { expiresIn: 3600 },
+        (err, token) => {
+          if (err) throw err;
+
+          res.json({
+            token,
+            user: {
+              id: staff.id,
+              name: staff.name,
+              email: staff.email,
+              jobTitle: staff.job_title,
+              admin: staff.admin,
+              isStaff: true,
+            },
+          });
+        }
+      );
     });
-
-    jwt.sign(
-      { id: staff.id },
-      process.env.JWT_SECRET,
-      { expiresIn: 3600 },
-      (err, token) => {
-        if (err) throw err;
-
-        res.json({
-          token,
-          user: {
-            id: staff.id,
-            name: staff.name,
-            email: staff.email,
-            jobTitle: staff.job_title,
-            admin: staff.admin,
-            isStaff: true,
-          },
-        });
-      }
-    );
   });
 };
 
@@ -111,7 +111,7 @@ const staff_register = (req, res) => {
 const staff_delete = (req, res) => {
   const id = req.parms.id;
   Staff.deleteOne({ _id: req.params.id }).then((result) => {
-    res.stats(200).json({
+    res.status(200).json({
       message: "staff deleted",
     });
   });

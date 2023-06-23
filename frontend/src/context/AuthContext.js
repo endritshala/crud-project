@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 
 export const AuthContext = createContext();
 
@@ -11,9 +11,16 @@ export const authReducer = (state, action) => {
         user: action.payload.user,
       };
     case "LOGOUT":
-      return { ...state, token: null, user: null };
+      return {
+        ...state,
+        token: null,
+        user: null,
+      };
     case "AUTH_IS_READY":
-      return { user: action.payload, authIsReady: true };
+      return {
+        user: action.payload,
+        authIsReady: true,
+      };
     default:
       return state;
   }
