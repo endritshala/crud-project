@@ -100,6 +100,32 @@ const patient_login = (req, res) => {
   });
 };
 
+const patient_passwordUpdate = (req, res, next) => {
+  const patient = new Patient({
+    _id: req.params.id,
+    password: req.body.password,
+  });
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(patient.password, salt, (err, hash) => {
+      if (err) return res.status(400).json({ msg: "Invalid data received" });
+
+      patient.password = hash;
+      Patient.updateOne({ _id: req.params.id }, patient)
+        .then((savedPatient) => {
+          res.status(200).json({
+            patient,
+            message: "one patient password updated",
+          });
+        })
+        .catch((error) => {
+          res.status(404).json({
+            message: error.message,
+          });
+        });
+    });
+  });
+};
+
 const patient_delete = (req, res) => {
   const id = req.params.id;
   Patient.deleteOne({ _id: req.params.id }).then((result) => {
@@ -234,6 +260,7 @@ const appointment_delete = (req, res) => {
 module.exports = {
   patient_register,
   patient_login,
+  patient_passwordUpdate,
   patient_list,
   patient_update,
   patient_delete,
