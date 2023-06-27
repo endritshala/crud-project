@@ -38,8 +38,3 @@ The Hospital Management System is built using the following technologies:
 	3.Create and manage patient records, appointments, medical staff details, inventory, billing, and other relevant data.
 	
 	4.Ensure regular backups of the database and follow security best practices to protect patient data.
-
- 
-# License
- 
-The Hospital Management System project is licensed under the MIT License. Feel free to use, modify, and distribute the code for personal or commercial purposes.
